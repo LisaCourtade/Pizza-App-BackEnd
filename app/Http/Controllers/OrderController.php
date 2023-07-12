@@ -59,7 +59,7 @@ class OrderController extends Controller
             $cost = $cost + Topping::find($toppingId)->price;
         };
 
-        $discount = count($toppings) >= 3 ? 10 : 0;
+        $discount = count($toppings) > 3 ? 10 : 0;
         $discountPrice = $discount > 0 ? $cost - ($cost * $discount/100) : null;
 
         $createdOrder = Order::create([
